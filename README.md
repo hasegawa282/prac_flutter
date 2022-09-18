@@ -1,0 +1,2 @@
+# prac_flutter
+flutterの基礎を叩き直すためのリポジトリ
