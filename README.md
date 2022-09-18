@@ -1,6 +1,6 @@
 # prac
 
-A new Flutter project.
+flutterの基礎を叩き直すためのリポジトリ
 
 ## Getting Started
 
