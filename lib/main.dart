@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prac/classes/TextColorClass.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,21 +11,65 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final List<TextColor> listItems = [
+      TextColor(text: 'Item 1', color: Colors.blue[600]),
+      TextColor(text: 'Item 2', color: Colors.blue[300]),
+      TextColor(text: 'Item 3', color: Colors.blue[100]),
+    ];
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Scaffold(
+        appBar: AppBar(
+          // 左側のアイコン
+          leading: Icon(Icons.arrow_back),
+          // タイトルテキスト
+          title: Text('Hello'),
+          // 右側のアイコン一覧
+          actions: <Widget>[
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.favorite),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.more_vert),
+            ),
+          ],
+        ),
+        body: Column(children: <Widget>[
+          ListTile(
+            leading: Image.network('https://placehold.jp/50x50.png'),
+            title: const Text('ListTile'),
+            subtitle: const Text('subtitle'),
+            trailing: Icon(Icons.more_vert),
+          ),
+          // 影のついたカードUIが作れる
+          Card(
+            child: Container(
+              height: 60,
+              width: double.infinity,
+              child: Text('Card'),
+            ),
+          ),
+          // 組み合わせることもOK
+          Card(
+            child: ListTile(
+              leading: Image.network('https://placehold.jp/50x50.png'),
+              title: Text('Card and ListTile'),
+              subtitle: Text('subtitle'),
+              trailing: Icon(Icons.more_vert),
+            ),
+          ),
+        ]),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.add),
+          backgroundColor: Colors.green,
+        ),
+      ),
     );
   }
 }
