@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:prac/components/ExpandedWidget.dart';
+import 'package:prac/components/PaddingWidget.dart';
 import 'package:prac/components/ProviderWidget.dart';
 import 'package:provider/provider.dart';
 
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: MyHomePage(),
+          home: PaddingPage(),
         ));
   }
 }
